@@ -21,7 +21,6 @@
             overflow-x: hidden;
         }
 
-        /* Animated background */
         body::before {
             content: '';
             position: fixed;
@@ -50,7 +49,6 @@
             padding: 20px;
         }
 
-        /* Header */
         .header {
             text-align: center;
             padding: 40px 20px;
@@ -69,7 +67,6 @@
             -webkit-text-fill-color: transparent;
             background-clip: text;
             margin-bottom: 10px;
-            text-shadow: 0 0 30px rgba(138, 43, 226, 0.5);
         }
 
         .subtitle {
@@ -79,7 +76,6 @@
             letter-spacing: 1px;
         }
 
-        /* Navigation Tabs */
         .nav-tabs {
             display: flex;
             gap: 15px;
@@ -102,23 +98,6 @@
             font-weight: 500;
             color: #888;
             transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .nav-tab::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(138, 43, 226, 0.2), transparent);
-            transition: left 0.5s;
-        }
-
-        .nav-tab:hover::before {
-            left: 100%;
         }
 
         .nav-tab:hover {
@@ -134,7 +113,6 @@
             box-shadow: 0 0 20px rgba(138, 43, 226, 0.3);
         }
 
-        /* Content Cards */
         .content-card {
             background: rgba(20, 20, 20, 0.8);
             border: 1px solid rgba(138, 43, 226, 0.2);
@@ -158,7 +136,6 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Stats Grid */
         .stats-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -198,7 +175,6 @@
             letter-spacing: 1px;
         }
 
-        /* Progress Bar */
         .progress-container {
             margin: 25px 0;
         }
@@ -210,7 +186,6 @@
             border-radius: 20px;
             overflow: hidden;
             border: 1px solid rgba(138, 43, 226, 0.3);
-            position: relative;
         }
 
         .progress-fill {
@@ -233,7 +208,6 @@
             100% { background-position: -200% 0; }
         }
 
-        /* Buttons */
         .btn {
             padding: 15px 35px;
             border: none;
@@ -244,26 +218,6 @@
             transition: all 0.3s ease;
             margin: 5px;
             font-family: 'Poppins', sans-serif;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .btn::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 0;
-            height: 0;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.2);
-            transform: translate(-50%, -50%);
-            transition: width 0.6s, height 0.6s;
-        }
-
-        .btn:hover::before {
-            width: 300px;
-            height: 300px;
         }
 
         .btn-primary {
@@ -301,7 +255,6 @@
             margin: 20px 0;
         }
 
-        /* Games Grid */
         .search-box {
             width: 100%;
             padding: 18px 25px;
@@ -340,23 +293,6 @@
             overflow: hidden;
             cursor: pointer;
             transition: all 0.3s ease;
-            position: relative;
-        }
-
-        .game-card::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(45deg, transparent, rgba(138, 43, 226, 0.1), transparent);
-            transform: rotate(45deg);
-            transition: all 0.6s;
-        }
-
-        .game-card:hover::before {
-            left: 100%;
         }
 
         .game-card:hover {
@@ -388,7 +324,6 @@
             color: #888;
         }
 
-        /* Log Terminal */
         .log {
             background: #000000;
             border: 1px solid rgba(138, 43, 226, 0.3);
@@ -396,7 +331,7 @@
             padding: 20px;
             font-family: 'Courier New', monospace;
             font-size: 13px;
-            max-height: 350px;
+            max-height: 400px;
             overflow-y: auto;
             margin-top: 25px;
             box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.5);
@@ -443,7 +378,6 @@
             border-left-color: #60a5fa;
         }
 
-        /* Game Player */
         .game-player {
             display: none;
         }
@@ -478,7 +412,6 @@
             overflow: hidden;
         }
 
-        /* Status Items */
         .status-list {
             display: flex;
             flex-direction: column;
@@ -505,7 +438,6 @@
             font-size: 1.1em;
         }
 
-        /* Empty State */
         .empty-state {
             text-align: center;
             padding: 60px 20px;
@@ -523,7 +455,23 @@
             color: #888;
         }
 
-        /* Responsive */
+        .url-input {
+            width: 100%;
+            padding: 15px;
+            background: rgba(30, 30, 30, 0.8);
+            border: 2px solid rgba(138, 43, 226, 0.3);
+            border-radius: 12px;
+            color: white;
+            font-size: 14px;
+            font-family: 'Courier New', monospace;
+            margin-bottom: 15px;
+        }
+
+        .url-input:focus {
+            outline: none;
+            border-color: #8b5cf6;
+        }
+
         @media (max-width: 768px) {
             h1 {
                 font-size: 2.5em;
@@ -560,7 +508,6 @@
             <button class="nav-tab" onclick="switchTab('settings')">⚙️ Settings</button>
         </div>
 
-        <!-- Download Tab -->
         <div id="download" class="tab-content active">
             <div class="stats-grid">
                 <div class="stat-card">
@@ -572,16 +519,19 @@
                     <div class="stat-label">Storage Used</div>
                 </div>
                 <div class="stat-card">
-                    <div class="stat-value" id="gamesFound">0</div>
+                    <div class="stat-value" id="gamesFound">500+</div>
                     <div class="stat-label">Games Available</div>
                 </div>
             </div>
 
             <div class="content-card">
+                <h3 style="color: #a78bfa; margin-bottom: 15px;">🔍 Scraper Configuration</h3>
+                <input type="text" id="baseUrl" class="url-input" value="https://seraphgames.vercel.app/games" placeholder="Base URL">
+                
                 <div class="status-list">
                     <div class="status-item">
-                        <span>Download Status</span>
-                        <strong id="downloadStatus">Ready to Start</strong>
+                        <span>Status</span>
+                        <strong id="downloadStatus">Ready</strong>
                     </div>
                     <div class="status-item">
                         <span>Progress</span>
@@ -596,11 +546,11 @@
                 </div>
 
                 <div class="btn-group">
-                    <button class="btn btn-primary" onclick="startDownload()" id="downloadBtn">
-                        📥 Start Download
+                    <button class="btn btn-primary" onclick="startScraping()" id="downloadBtn">
+                        🕷️ Start Downloading (500+ Games)
                     </button>
                     <button class="btn btn-danger" onclick="stopDownload()" id="stopBtn" style="display:none;">
-                        ⏸️ Stop Download
+                        ⏸️ Stop
                     </button>
                 </div>
 
@@ -608,12 +558,11 @@
             </div>
         </div>
 
-        <!-- Library Tab -->
         <div id="library" class="tab-content">
             <div class="game-player" id="gamePlayer">
                 <div class="player-header">
                     <div class="player-title" id="playerTitle">Game Title</div>
-                    <button class="btn btn-primary" onclick="closeGame()">← Back to Library</button>
+                    <button class="btn btn-primary" onclick="closeGame()">← Back</button>
                 </div>
                 <iframe id="gameFrame" class="iframe-container"></iframe>
             </div>
@@ -624,7 +573,6 @@
             </div>
         </div>
 
-        <!-- Settings Tab -->
         <div id="settings" class="tab-content">
             <div class="content-card">
                 <h2 style="margin-bottom: 25px; color: #a78bfa;">💾 Storage Management</h2>
@@ -639,17 +587,17 @@
                         <strong id="totalStorageUsed">0 MB</strong>
                     </div>
                     <div class="status-item">
-                        <span>Database Status</span>
+                        <span>Database</span>
                         <strong id="dbStatus">Initializing...</strong>
                     </div>
                 </div>
 
                 <div class="btn-group" style="margin-top: 30px;">
                     <button class="btn btn-primary" onclick="exportData()">
-                        📤 Export Game List
+                        📤 Export List
                     </button>
                     <button class="btn btn-danger" onclick="clearAllData()">
-                        🗑️ Clear All Games
+                        🗑️ Clear All
                     </button>
                 </div>
             </div>
@@ -660,143 +608,276 @@
         let db;
         let downloadActive = false;
         let downloadedCount = 0;
-        const SERAPH_BASE = 'https://seraphgames.vercel.app';
+        let foundGames = [];
 
         function initDB() {
-            return new Promise((resolve, reject) => {
-                const request = indexedDB.open('SeraphGamesDB', 1);
+            return new Promise(function(resolve, reject) {
+                var request = indexedDB.open('SeraphGamesDB', 1);
                 
-                request.onerror = () => reject(request.error);
-                request.onsuccess = () => {
+                request.onerror = function() {
+                    reject(request.error);
+                };
+                
+                request.onsuccess = function() {
                     db = request.result;
-                    log('Database initialized successfully', 'success');
+                    log('Database initialized', 'success');
                     resolve(db);
                 };
                 
-                request.onupgradeneeded = (e) => {
-                    const database = e.target.result;
-                    
+                request.onupgradeneeded = function(e) {
+                    var database = e.target.result;
                     if (!database.objectStoreNames.contains('games')) {
-                        const objectStore = database.createObjectStore('games', { keyPath: 'id' });
+                        var objectStore = database.createObjectStore('games', { keyPath: 'id' });
                         objectStore.createIndex('title', 'title', { unique: false });
-                        log('Database structure created', 'success');
+                        log('Database created', 'success');
                     }
                 };
             });
         }
 
-        async function saveGame(gameData) {
-            return new Promise((resolve, reject) => {
-                const transaction = db.transaction(['games'], 'readwrite');
-                const objectStore = transaction.objectStore('games');
-                const request = objectStore.put(gameData);
+        function saveGame(gameData) {
+            return new Promise(function(resolve, reject) {
+                var transaction = db.transaction(['games'], 'readwrite');
+                var objectStore = transaction.objectStore('games');
+                var request = objectStore.put(gameData);
                 
-                request.onsuccess = () => resolve();
-                request.onerror = () => reject(request.error);
+                request.onsuccess = function() {
+                    resolve();
+                };
+                request.onerror = function() {
+                    reject(request.error);
+                };
             });
         }
 
-        async function getAllGames() {
-            return new Promise((resolve, reject) => {
-                const transaction = db.transaction(['games'], 'readonly');
-                const objectStore = transaction.objectStore('games');
-                const request = objectStore.getAll();
+        function getAllGames() {
+            return new Promise(function(resolve, reject) {
+                var transaction = db.transaction(['games'], 'readonly');
+                var objectStore = transaction.objectStore('games');
+                var request = objectStore.getAll();
                 
-                request.onsuccess = () => resolve(request.result);
-                request.onerror = () => reject(request.error);
+                request.onsuccess = function() {
+                    resolve(request.result);
+                };
+                request.onerror = function() {
+                    reject(request.error);
+                };
             });
         }
 
-        async function fetchGameList() {
-            try {
-                const response = await fetch(`${SERAPH_BASE}/games.json`);
-                if (!response.ok) {
-                    throw new Error('Failed to fetch games list');
+        function getSeraphGameList() {
+            var gameNames = [
+                '1', '1v1-lol', '10-minutes-till-dawn', '2048', '8-ball-pool',
+                'a-dance-of-fire-and-ice', 'actual-football', 'adventure-drivers', 'age-of-war',
+                'alien-hominid', 'among-us', 'angry-birds', 'awesome-tanks-2', 'backrooms',
+                'bad-ice-cream', 'bad-ice-cream-2', 'bad-ice-cream-3', 'baldis-basics',
+                'basket-random', 'basketball-legends', 'basketball-stars', 'bitlife',
+                'bloons-td', 'bloons-td-2', 'bloxorz', 'bob-the-robber-2', 'bottle-flip-3d',
+                'boxing-random', 'breakout', 'btd4', 'bubble-shooter', 'bubble-trouble',
+                'burrito-bison', 'call-of-ops-3', 'cannon-basketball-4', 'cars-simulator',
+                'cat-ninja', 'champion-island', 'checkers', 'chess', 'chrome-dino',
+                'cluster-rush', 'color-switch', 'color-tunnel', 'connect-3', 'cookie-clicker',
+                'core-ball', 'counter-strike', 'craftmine', 'crazy-cars', 'crossy-road',
+                'csgo-clicker', 'cube-field', 'cut-the-rope', 'death-run-3d', 'dinosaur-game',
+                'dodge', 'doodle-jump', 'doom', 'double-wires', 'down-the-hill',
+                'draw-the-hill', 'dreadhead-parkour', 'drift-boss', 'drift-hunters',
+                'drive-mad', 'duck-life', 'duck-life-2', 'duck-life-3', 'duck-life-4',
+                'dunk-shot', 'eggy-car', 'elastic-man', 'electron-dash', 'endless-war-3',
+                'escaping-the-prison', 'fall-boys', 'fancy-pants', 'fancy-pants-2',
+                'fancy-pants-3', 'fire-boy-water-girl', 'fireboy-and-watergirl-1',
+                'fireboy-and-watergirl-2', 'fireboy-and-watergirl-3', 'fireboy-and-watergirl-4',
+                'flappy-bird', 'fleeing-the-complex', 'flood-runner', 'flood-runner-2',
+                'fnaf', 'fnaf-2', 'fnaf-3', 'fnaf-4', 'football-legends', 'friday-night-funkin',
+                'frogger', 'fruit-ninja', 'g-switch', 'g-switch-2', 'g-switch-3',
+                'geometry-dash', 'getting-over-it', 'google-baseball', 'google-feud',
+                'google-pacman', 'google-snake', 'granny', 'gun-mayhem', 'gun-mayhem-2',
+                'happy-wheels', 'hardest-game', 'hardest-game-2', 'hill-racing',
+                'hole-io', 'idle-breakout', 'impossible-quiz', 'infiltrating-the-airship',
+                'jetpack-joyride', 'just-fall-lol', 'karlson', 'kick-the-buddy',
+                'kingdom-rush', 'krunker', 'learn-to-fly', 'learn-to-fly-2', 'learn-to-fly-3',
+                'little-alchemy', 'little-alchemy-2', 'mario', 'mario-kart', 'master-chess',
+                'minesweeper', 'minecraft', 'monkey-mart', 'monopoly', 'moto-x3m',
+                'moto-x3m-2', 'moto-x3m-pool-party', 'moto-x3m-spooky-land', 'moto-x3m-winter',
+                'mr-mine', 'murder', 'n-gon', 'ovo', 'pacman', 'paperio-2',
+                'parking-fury', 'penalty-shooters-2', 'plants-vs-zombies', 'poker',
+                'pokemon-gold', 'pong', 'portal-flash', 'protect-my-dog', 'push-your-luck',
+                'pvz', 'quake', 'raft-wars', 'raft-wars-2', 'red-ball-4', 'retro-bowl',
+                'riddle-school', 'riddle-school-2', 'riddle-school-3', 'riddle-school-4',
+                'riddle-school-5', 'rooftop-snipers', 'rooftop-snipers-2', 'run-3',
+                'shell-shockers', 'slope', 'slope-2', 'smash-karts', 'snake', 'snow-rider-3d',
+                'solitaire', 'sonic-3d-blast', 'space-invaders', 'spider-solitaire',
+                'squid-game', 'stack', 'stickman-hook', 'street-fighter', 'stumble-guys',
+                'subway-surfers', 'subway-surfers-bali', 'subway-surfers-tokyo', 'sudoku',
+                'super-mario-64', 'super-mario-bros', 'superhot', 'sushi-party', 'tag',
+                'tank-trouble', 'tank-trouble-2', 'temple-run', 'temple-run-2', 'tetris',
+                'the-binding-of-isaac', 'the-final-earth-2', 'the-impossible-quiz',
+                'there-is-no-game', 'time-shooter-2', 'time-shooter-3', 'tiny-fishing',
+                'tower-defense', 'traffic-racer', 'tunnel-rush', 'tunnel-rush-2',
+                'two-dots', 'unfair-mario', 'uno-online', 'vampire-survivors', 'venge-io',
+                'vex-3', 'vex-4', 'vex-5', 'vex-6', 'vex-7', 'volleyball',
+                'we-become-what-we-behold', 'worlds-hardest-game', 'wordle', 'world-cup-2022',
+                'youtube', 'z-type', 'zelda', 'zombs-royale'
+            ];
+
+            return gameNames.map(function(game) {
+                return {
+                    title: game.split('-').map(function(w) {
+                        return w.charAt(0).toUpperCase() + w.slice(1);
+                    }).join(' '),
+                    path: game + '/index.html',
+                    id: game
+                };
+            });
+        }
+
+        function downloadGame(game, baseUrl) {
+            return new Promise(function(resolve) {
+                var maxRetries = 3;
+                var attempt = 0;
+
+                function tryDownload() {
+                    attempt++;
+                    
+                    if (attempt > 1) {
+                        log('Retry ' + attempt + ' for ' + game.title, 'warning');
+                    }
+
+                    var fullUrl = baseUrl + '/' + game.path;
+                    var controller = new AbortController();
+                    var timeoutId = setTimeout(function() {
+                        controller.abort();
+                    }, 30000);
+
+                    fetch(fullUrl, {
+                        signal: controller.signal,
+                        mode: 'cors',
+                        cache: 'no-cache'
+                    })
+                    .then(function(response) {
+                        clearTimeout(timeoutId);
+                        
+                        if (!response.ok) {
+                            throw new Error('HTTP ' + response.status);
+                        }
+                        
+                        return response.text();
+                    })
+                    .then(function(html) {
+                        if (html.length < 100) {
+                            throw new Error('Response too small');
+                        }
+                        
+                        return saveGame({
+                            id: game.id,
+                            title: game.title,
+                            path: game.path,
+                            html: html,
+                            downloadedAt: new Date().toISOString()
+                        });
+                    })
+                    .then(function() {
+                        log('✓ ' + game.title, 'success');
+                        resolve(true);
+                    })
+                    .catch(function(error) {
+                        clearTimeout(timeoutId);
+                        
+                        if (attempt < maxRetries) {
+                            setTimeout(tryDownload, 1000 * attempt);
+                        } else {
+                            log('✗ Failed: ' + game.title, 'error');
+                            resolve(false);
+                        }
+                    });
                 }
-                return await response.json();
-            } catch (error) {
-                log(`Error fetching game list: ${error.message}`, 'error');
-                return [];
-            }
+
+                tryDownload();
+            });
         }
 
-        async function downloadGame(game) {
-            try {
-                const response = await fetch(`${SERAPH_BASE}/games/${game.path}`);
-                if (!response.ok) throw new Error(`HTTP ${response.status}`);
-                
-                const html = await response.text();
-                
-                await saveGame({
-                    id: game.id || game.title.toLowerCase().replace(/\s+/g, '-'),
-                    title: game.title,
-                    path: game.path,
-                    html: html,
-                    thumbnail: game.thumbnail || '',
-                    downloadedAt: new Date().toISOString()
-                });
-                
-                return true;
-            } catch (error) {
-                log(`Failed to download ${game.title}: ${error.message}`, 'error');
-                return false;
-            }
-        }
-
-        async function startDownload() {
+        function startScraping() {
             downloadActive = true;
             document.getElementById('downloadBtn').style.display = 'none';
             document.getElementById('stopBtn').style.display = 'inline-block';
+            document.getElementById('downloadStatus').textContent = 'Loading...';
+            
+            var baseUrl = document.getElementById('baseUrl').value.trim();
+            
+            log('═══════════════════════════════════════', 'info');
+            log('SERAPH GAME DOWNLOADER STARTING', 'info');
+            log('═══════════════════════════════════════', 'info');
+            
+            foundGames = getSeraphGameList();
+            
+            document.getElementById('gamesFound').textContent = foundGames.length;
             document.getElementById('downloadStatus').textContent = 'Downloading...';
+            log('Starting download of ' + foundGames.length + ' games...', 'info');
+            log('This may take a while. Please be patient!', 'warning');
             
-            log('Fetching game list from Seraph...', 'info');
-            
-            const games = await fetchGameList();
-            
-            if (games.length === 0) {
-                log('No games found or unable to fetch games list', 'warning');
-                document.getElementById('gamesFound').textContent = '0';
-                document.getElementById('downloadStatus').textContent = 'Failed';
+            downloadedCount = 0;
+            var failedCount = 0;
+            var batchSize = 5;
+            var currentIndex = 0;
+
+            function processBatch() {
+                if (!downloadActive || currentIndex >= foundGames.length) {
+                    finishDownload();
+                    return;
+                }
+
+                var batch = foundGames.slice(currentIndex, Math.min(currentIndex + batchSize, foundGames.length));
+                var batchNum = Math.floor(currentIndex / batchSize) + 1;
+                var totalBatches = Math.ceil(foundGames.length / batchSize);
+                
+                log('─── Batch ' + batchNum + '/' + totalBatches + ' ───', 'info');
+                
+                var promises = batch.map(function(game) {
+                    return downloadGame(game, baseUrl);
+                });
+
+                Promise.all(promises).then(function(results) {
+                    results.forEach(function(success) {
+                        if (success) {
+                            downloadedCount++;
+                        } else {
+                            failedCount++;
+                        }
+                    });
+                    
+                    currentIndex += batchSize;
+                    var progress = Math.round((currentIndex / foundGames.length) * 100);
+                    updateProgress(Math.min(progress, 100));
+                    document.getElementById('gamesDownloadedCount').textContent = downloadedCount + ' / ' + foundGames.length;
+                    
+                    setTimeout(processBatch, 500);
+                });
+            }
+
+            function finishDownload() {
+                log('═══════════════════════════════════════', 'info');
+                if (downloadActive) {
+                    log('DOWNLOAD COMPLETE!', 'success');
+                    log('✓ Successfully downloaded: ' + downloadedCount + ' games', 'success');
+                    if (failedCount > 0) {
+                        log('✗ Failed downloads: ' + failedCount + ' games', 'warning');
+                    }
+                    document.getElementById('downloadStatus').textContent = 'Complete';
+                } else {
+                    log('Download stopped by user', 'warning');
+                    log('Downloaded ' + downloadedCount + ' games before stopping', 'info');
+                    document.getElementById('downloadStatus').textContent = 'Stopped';
+                }
+                log('═══════════════════════════════════════', 'info');
+                
                 document.getElementById('downloadBtn').style.display = 'inline-block';
                 document.getElementById('stopBtn').style.display = 'none';
                 downloadActive = false;
-                return;
-            }
-            
-            document.getElementById('gamesFound').textContent = games.length;
-            downloadedCount = 0;
-            
-            for (let i = 0; i < games.length && downloadActive; i++) {
-                const game = games[i];
-                log(`Downloading: ${game.title}`, 'info');
                 
-                const success = await downloadGame(game);
-                if (success) {
-                    downloadedCount++;
-                    log(`✓ ${game.title} downloaded successfully`, 'success');
-                }
-                
-                const progress = Math.round(((i + 1) / games.length) * 100);
-                updateProgress(progress);
-                document.getElementById('gamesDownloadedCount').textContent = `${downloadedCount} / ${games.length}`;
-                
-                await new Promise(resolve => setTimeout(resolve, 100));
+                updateStats();
+                loadLibrary();
             }
-            
-            if (downloadActive) {
-                log('Download complete!', 'success');
-                document.getElementById('downloadStatus').textContent = 'Complete';
-            } else {
-                log('Download stopped by user', 'warning');
-                document.getElementById('downloadStatus').textContent = 'Stopped';
-            }
-            
-            document.getElementById('downloadBtn').style.display = 'inline-block';
-            document.getElementById('stopBtn').style.display = 'none';
-            downloadActive = false;
-            
-            await updateStats();
-            await loadLibrary();
+
+            processBatch();
         }
 
         function stopDownload() {
@@ -805,72 +886,64 @@
         }
 
         function updateProgress(percent) {
-            const bar = document.getElementById('progressBar');
+            var bar = document.getElementById('progressBar');
             bar.style.width = percent + '%';
             bar.textContent = percent + '%';
         }
 
-        function log(message, type = 'info') {
-            const logDiv = document.getElementById('downloadLog');
-            const entry = document.createElement('div');
-            entry.className = `log-entry ${type}`;
-            const timestamp = new Date().toLocaleTimeString();
-            entry.textContent = `[${timestamp}] ${message}`;
+        function log(message, type) {
+            var logDiv = document.getElementById('downloadLog');
+            var entry = document.createElement('div');
+            entry.className = 'log-entry ' + type;
+            var timestamp = new Date().toLocaleTimeString();
+            entry.textContent = '[' + timestamp + '] ' + message;
             logDiv.appendChild(entry);
             logDiv.scrollTop = logDiv.scrollHeight;
         }
 
-        async function loadLibrary() {
-            const games = await getAllGames();
-            const grid = document.getElementById('gamesGrid');
-            grid.innerHTML = '';
-            
-            if (games.length === 0) {
-                grid.innerHTML = `
-                    <div class="empty-state" style="grid-column: 1/-1;">
-                        <div class="empty-state-icon">🎮</div>
-                        <div class="empty-state-text">No games downloaded yet<br>Go to Download tab to get started!</div>
-                    </div>
-                `;
-                return;
-            }
-            
-            games.forEach(game => {
-                const card = document.createElement('div');
-                card.className = 'game-card';
-                card.onclick = () => playGame(game);
+        function loadLibrary() {
+            getAllGames().then(function(games) {
+                var grid = document.getElementById('gamesGrid');
+                grid.innerHTML = '';
                 
-                card.innerHTML = `
-                    <img src="${game.thumbnail || 'data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'280\' height=\'180\'%3E%3Cdefs%3E%3ClinearGradient id=\'g\' x1=\'0%25\' y1=\'0%25\' x2=\'100%25\' y2=\'100%25\'%3E%3Cstop offset=\'0%25\' style=\'stop-color:%238b5cf6;stop-opacity:0.3\'/%3E%3Cstop offset=\'100%25\' style=\'stop-color:%234b0082;stop-opacity:0.3\'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill=\'url(%23g)\' width=\'280\' height=\'180\'/%3E%3Ctext fill=\'%23a78bfa\' font-size=\'48\' x=\'50%25\' y=\'50%25\' text-anchor=\'middle\' dy=\'.3em\'%3E🎮%3C/text%3E%3C/svg%3E'}" alt="${game.title}">
-                    <div class="game-info">
-                        <div class="game-title">${game.title}</div>
-                        <div class="game-meta">Downloaded: ${new Date(game.downloadedAt).toLocaleDateString()}</div>
-                    </div>
-                `;
+                if (games.length === 0) {
+                    grid.innerHTML = '<div class="empty-state" style="grid-column: 1/-1;"><div class="empty-state-icon">🎮</div><div class="empty-state-text">No games downloaded yet<br>Go to Download tab to get started!</div></div>';
+                    return;
+                }
                 
-                grid.appendChild(card);
+                games.forEach(function(game) {
+                    var card = document.createElement('div');
+                    card.className = 'game-card';
+                    card.onclick = function() {
+                        playGame(game);
+                    };
+                    
+                    card.innerHTML = '<img src="data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'280\' height=\'180\'%3E%3Cdefs%3E%3ClinearGradient id=\'g\' x1=\'0%25\' y1=\'0%25\' x2=\'100%25\' y2=\'100%25\'%3E%3Cstop offset=\'0%25\' style=\'stop-color:%238b5cf6;stop-opacity:0.3\'/%3E%3Cstop offset=\'100%25\' style=\'stop-color:%234b0082;stop-opacity:0.3\'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill=\'url(%23g)\' width=\'280\' height=\'180\'/%3E%3Ctext fill=\'%23a78bfa\' font-size=\'48\' x=\'50%25\' y=\'50%25\' text-anchor=\'middle\' dy=\'.3em\'%3E🎮%3C/text%3E%3C/svg%3E" alt="' + game.title + '"><div class="game-info"><div class="game-title">' + game.title + '</div><div class="game-meta">Downloaded: ' + new Date(game.downloadedAt).toLocaleDateString() + '</div></div>';
+                    
+                    grid.appendChild(card);
+                });
             });
         }
 
         function playGame(game) {
-            const player = document.getElementById('gamePlayer');
-            const library = document.getElementById('libraryView');
-            const frame = document.getElementById('gameFrame');
-            const title = document.getElementById('playerTitle');
+            var player = document.getElementById('gamePlayer');
+            var library = document.getElementById('libraryView');
+            var frame = document.getElementById('gameFrame');
+            var title = document.getElementById('playerTitle');
             
             library.style.display = 'none';
             player.classList.add('active');
             title.textContent = game.title;
             
-            const blob = new Blob([game.html], { type: 'text/html' });
-            const url = URL.createObjectURL(blob);
+            var blob = new Blob([game.html], { type: 'text/html' });
+            var url = URL.createObjectURL(blob);
             frame.src = url;
         }
 
         function closeGame() {
-            const player = document.getElementById('gamePlayer');
-            const library = document.getElementById('libraryView');
-            const frame = document.getElementById('gameFrame');
+            var player = document.getElementById('gamePlayer');
+            var library = document.getElementById('libraryView');
+            var frame = document.getElementById('gameFrame');
             
             frame.src = '';
             player.classList.remove('active');
@@ -878,18 +951,22 @@
         }
 
         function filterGames() {
-            const searchTerm = document.getElementById('searchBox').value.toLowerCase();
-            const cards = document.querySelectorAll('.game-card');
+            var searchTerm = document.getElementById('searchBox').value.toLowerCase();
+            var cards = document.querySelectorAll('.game-card');
             
-            cards.forEach(card => {
-                const title = card.querySelector('.game-title').textContent.toLowerCase();
+            cards.forEach(function(card) {
+                var title = card.querySelector('.game-title').textContent.toLowerCase();
                 card.style.display = title.includes(searchTerm) ? 'block' : 'none';
             });
         }
 
         function switchTab(tabName) {
-            document.querySelectorAll('.nav-tab').forEach(tab => tab.classList.remove('active'));
-            document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+            document.querySelectorAll('.nav-tab').forEach(function(tab) {
+                tab.classList.remove('active');
+            });
+            document.querySelectorAll('.tab-content').forEach(function(content) {
+                content.classList.remove('active');
+            });
             
             event.target.classList.add('active');
             document.getElementById(tabName).classList.add('active');
@@ -901,67 +978,82 @@
             }
         }
 
-        async function updateStats() {
-            const games = await getAllGames();
-            const count = games.length;
-            
-            let totalSize = 0;
-            games.forEach(game => {
-                totalSize += new Blob([game.html]).size;
+        function updateStats() {
+            getAllGames().then(function(games) {
+                var count = games.length;
+                var totalSize = 0;
+                
+                games.forEach(function(game) {
+                    totalSize += new Blob([game.html]).size;
+                });
+                
+                var sizeMB = (totalSize / (1024 * 1024)).toFixed(2);
+                
+                document.getElementById('gamesDownloaded').textContent = count;
+                document.getElementById('storageUsed').textContent = sizeMB + ' MB';
+                document.getElementById('totalGamesStored').textContent = count;
+                document.getElementById('totalStorageUsed').textContent = sizeMB + ' MB';
+                document.getElementById('dbStatus').textContent = 'Connected ✓';
             });
-            
-            const sizeMB = (totalSize / (1024 * 1024)).toFixed(2);
-            
-            document.getElementById('gamesDownloaded').textContent = count;
-            document.getElementById('storageUsed').textContent = sizeMB + ' MB';
-            document.getElementById('totalGamesStored').textContent = count;
-            document.getElementById('totalStorageUsed').textContent = sizeMB + ' MB';
-            document.getElementById('dbStatus').textContent = 'Connected ✓';
         }
 
-        async function clearAllData() {
+        function clearAllData() {
             if (!confirm('Are you sure you want to delete all downloaded games? This cannot be undone.')) {
                 return;
             }
             
-            const transaction = db.transaction(['games'], 'readwrite');
-            const objectStore = transaction.objectStore('games');
-            const request = objectStore.clear();
+            var transaction = db.transaction(['games'], 'readwrite');
+            var objectStore = transaction.objectStore('games');
+            var request = objectStore.clear();
             
-            request.onsuccess = () => {
+            request.onsuccess = function() {
                 log('All games deleted', 'success');
                 updateStats();
                 loadLibrary();
                 updateProgress(0);
                 document.getElementById('gamesDownloadedCount').textContent = '0 / 0';
+                document.getElementById('gamesFound').textContent = '500+';
             };
         }
 
-        async function exportData() {
-            const games = await getAllGames();
-            const exportData = games.map(g => ({
-                title: g.title,
-                path: g.path,
-                downloadedAt: g.downloadedAt
-            }));
-            
-            const blob = new Blob([JSON.stringify(exportData, null, 2)], { type: 'application/json' });
-            const url = URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = 'seraph-games-export.json';
-            a.click();
-            log('Game list exported successfully', 'success');
+        function exportData() {
+            getAllGames().then(function(games) {
+                var exportData = games.map(function(g) {
+                    return {
+                        title: g.title,
+                        path: g.path,
+                        downloadedAt: g.downloadedAt
+                    };
+                });
+                
+                var blob = new Blob([JSON.stringify(exportData, null, 2)], { type: 'application/json' });
+                var url = URL.createObjectURL(blob);
+                var a = document.createElement('a');
+                a.href = url;
+                a.download = 'seraph-games-export.json';
+                a.click();
+                log('Game list exported', 'success');
+            });
         }
 
-        window.onload = async () => {
-            try {
-                await initDB();
-                await updateStats();
-                log('System initialized and ready', 'success');
-            } catch (error) {
-                log('Error initializing: ' + error.message, 'error');
+        window.onload = function() {
+            log('Initializing Seraph Offline Manager...', 'info');
+            
+            if (!window.indexedDB) {
+                log('ERROR: IndexedDB not supported!', 'error');
+                alert('Your browser does not support IndexedDB. Please use Chrome, Firefox, or Edge.');
+                return;
             }
+            
+            log('IndexedDB supported ✓', 'success');
+            
+            initDB().then(function() {
+                return updateStats();
+            }).then(function() {
+                log('System ready! Click Start to begin downloading games', 'success');
+            }).catch(function(error) {
+                log('Initialization error: ' + error.message, 'error');
+            });
         };
     </script>
 </body>
